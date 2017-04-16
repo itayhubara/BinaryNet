@@ -4,10 +4,10 @@ This is a complete training example for BinaryNets using Binary-Backpropagation 
 "Binarized Neural Networks: Training Deep Neural Networks with Weights and Activations Constrained to +1 or -1, Matthieu Courbariaux, Itay Hubara, Daniel Soudry, Ran El-Yaniv, Yoshua Bengio'
 on following datasets: Cifar10/100, SVHN, MNIST
 
-##Data
+## Data
 We use dp library to extract all the data please view installation section
 
-##Dependencies
+## Dependencies
 * Torch (http://torch.ch)
 * "DataProvider.torch" (https://github.com/eladhoffer/DataProvider.torch) for DataProvider class.
 * "cudnn.torch" (https://github.com/soumith/cudnn.torch) for faster training. Can be avoided by changing "cudnn" to "nn" in models.
@@ -22,7 +22,7 @@ luarocks install dp
 luarocks install unsup
 ```
 
-##Training
+## Training
 Create pre-processing folder:
 ```lua
 cd BinaryNet
