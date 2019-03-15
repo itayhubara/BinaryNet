@@ -38,6 +38,7 @@ th Main_BinaryNet_MNIST.lua -network BinaryNet_MNIST_Model
 ```
 
 ##Additional flags
+
 |Flag             | Default Value        |Description
 |:----------------|:--------------------:|:----------------------------------------------
 |modelsFolder     |  ./Models/           | Models Folder
