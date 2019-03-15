@@ -32,8 +32,8 @@ mkdir PreProcData
 Start training using:
 ```lua
 th Main_BinaryNet_Cifar10.lua -network BinaryNet_Cifar10_Model
-or,
 ```
+or,
 ```lua
 th Main_BinaryNet_MNIST.lua -network BinaryNet_MNIST_Model
 ```
