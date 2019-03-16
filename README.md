@@ -32,12 +32,14 @@ mkdir PreProcData
 Start training using:
 ```lua
 th Main_BinaryNet_Cifar10.lua -network BinaryNet_Cifar10_Model
+```
 or,
 ```lua
 th Main_BinaryNet_MNIST.lua -network BinaryNet_MNIST_Model
 ```
 
-##Additional flags
+## Additional flags
+
 |Flag             | Default Value        |Description
 |:----------------|:--------------------:|:----------------------------------------------
 |modelsFolder     |  ./Models/           | Models Folder
