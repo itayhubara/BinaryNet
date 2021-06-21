@@ -37,7 +37,7 @@ or,
 th Main_BinaryNet_MNIST.lua -network BinaryNet_MNIST_Model
 ```
 
-## run with Docker
+## Run with Docker
 The Docker is built from `nvidia/cuda:8.0-cudnn5-devel` with Torch commit `0219027e6c4644a0ba5c5bf137c989a0a8c9e01b`
 
 - To build image, run: `docker build -t binarynet:torch-gpu-cuda-8.0 -f Dockerfile/binarynet-torch-gpu-cuda-8.0 .` or to pull docker image: `docker pull hychiang/binarynet:torch-gpu-cuda-8.0`
