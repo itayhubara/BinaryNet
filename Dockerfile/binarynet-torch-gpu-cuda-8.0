@@ -1,0 +1,31 @@
+FROM nvidia/cuda:8.0-cudnn5-devel
+WORKDIR /workspace
+
+# Install dependencies for OpenBLAS, Jupyter, and Torch
+RUN apt-get update \
+ && apt-get install -y \
+    build-essential git gfortran \
+    python3 python3-setuptools python3-dev \
+    cmake curl wget unzip libreadline-dev libjpeg-dev libpng-dev ncurses-dev \
+    imagemagick gnuplot gnuplot-x11 libssl-dev libzmq3-dev graphviz vim sudo tmux
+
+# Install OpenBLAS
+RUN apt-get -y install libopenblas-dev
+
+# Install Torch commit no: 0219027e6c4644a0ba5c5bf137c989a0a8c9e01b
+RUN git clone https://github.com/torch/distro.git torch --recursive
+RUN cd torch \
+ && /bin/bash install-deps \
+ && ./install.sh
+
+# get torch tutorials. comment out this line if no need
+RUN git clone https://github.com/torch/tutorials.git
+
+# Install dependency for [BinaryNet](https://github.com/itayhubara/BinaryNet)
+RUN /workspace/torch/install/bin/luarocks install https://raw.githubusercontent.com/eladhoffer/DataProvider.torch/master/dataprovider-scm-1.rockspec
+RUN /workspace/torch/install/bin/luarocks install cudnn 
+RUN /workspace/torch/install/bin/luarocks install dp
+RUN /workspace/torch/install/bin/luarocks install unsup
+
+# copy BinaryNet into the image
+ADD . BinaryNet
