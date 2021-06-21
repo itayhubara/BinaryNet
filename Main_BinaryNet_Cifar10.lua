@@ -53,7 +53,7 @@ cmd:option('-dp_prepro',          false,                   'preprocessing using 
 cmd:option('-augment',            false,                  'Augment training data')
 cmd:option('-preProcDir',         './PreProcData/',       'Data for pre-processing (means,P,invP)')
 cmd:text('===>Misc')
-cmd:option('-visualize',          1,                      'visualizing results')
+cmd:option('-visualize',          0,                      'visualizing results')
 
 torch.manualSeed(432)
 opt = cmd:parse(arg or {})
@@ -64,7 +64,7 @@ opt.preProcDir = paths.concat(opt.preProcDir, opt.dataset .. '/')
 -- If you choose to use exponentialy decaying learning rate use uncomment this line
 --opt.LRDecay=torch.pow((2e-6/opt.LR),(1./500));
 --
-os.execute('mk1ir -p ' .. opt.preProcDir)
+os.execute('mkdir -p ' .. opt.preProcDir)
 torch.setnumthreads(opt.threads)
 
 torch.setdefaulttensortype('torch.FloatTensor')
@@ -303,6 +303,7 @@ while epoch ~= opt.epoch do
     print('Test Loss = ' .. LossTest)
 
     Log:add{['Training Error']= ErrTrain, ['Valid Error'] = ErrValid, ['Test Error'] = ErrTest}
+    -- the training stops at epoch 3 if visualize is set to 1
     if opt.visualize == 1 then
         Log:style{['Training Error'] = '-',['Validation Error'] = '-', ['Test Error'] = '-'}
         Log:plot()
