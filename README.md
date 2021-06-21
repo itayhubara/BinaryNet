@@ -47,7 +47,7 @@ The Docker is built from `nvidia/cuda:8.0-cudnn5-devel` with Torch commit `02190
 - To train BNN with Cifar10: `th Main_BinaryNet_Cifar10.lua -network BinaryNet_Cifar10_Model`
 
 
-##Additional flags
+## Additional flags
 |Flag             | Default Value        |Description
 |:----------------|:--------------------:|:----------------------------------------------
 |modelsFolder     |  ./Models/           | Models Folder
