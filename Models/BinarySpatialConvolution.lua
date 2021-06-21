@@ -152,7 +152,7 @@ function BinarySpatialConvolution:updateGradInput(input, gradOutput)
          gradOutput:cdata(),
          self.gradInput:cdata(),
          self.weight:cdata(),
-         self.bias:cdata(),
+         -- self.bias:cdata(), -- removed from this commit https://github.com/torch/nn/commit/651103f3aabc2dd154d6bd95ad565d14009255e6
          self.finput:cdata(),
          self.fgradInput:cdata(),
          self.kW, self.kH,
