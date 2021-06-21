@@ -1,7 +1,7 @@
 FROM nvidia/cuda:8.0-cudnn5-devel
 WORKDIR /workspace
 
-# Install dependencies for OpenBLAS, Jupyter, and Torch
+# Install dependencies
 RUN apt-get update \
  && apt-get install -y \
     build-essential git gfortran \
